@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Esta línea es clave para que la página sea responsive en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú | Fika Ritual</title>
+  <meta name="description" content="Fika Ritual: cafetería de especialidad, restó y panadería artesanal en Del Viso, Pilar.">
+
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER (igual en todas las páginas) ===== -->
+  <header class="header">
+    <div class="contenedor">
+      <a href="index.html" class="logo" aria-label="Fika Ritual, ir al inicio">
+        <span class="logo-fika">FIKA</span>
+        <span class="logo-ritual">RITUAL</span>
+      </a>
+
+      <!-- Checkbox escondido: abre y cierra el menú en celular -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html" class="activo">Menú</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="fika.html">Fika</a></li>
+          <li><a href="espacio.html">Espacio</a></li>
+          <li><a href="info.html">Info</a></li>
+          <li class="solo-celular"><a href="info.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a href="info.html#contacto" class="boton boton-borde">Contacto</a>
+
+      <!-- Botón hamburguesa (solo se ve en celular) -->
+      <label for="menu-toggle" class="hamburguesa" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO MENÚ ===== -->
+    <section class="hero-chico">
+      <img class="hero-foto" src="img/hero-menu.jpg" alt="Dos cafés con latte art sobre una mesa verde">
+      <div class="contenedor hero-texto">
+        <h1>Menú</h1>
+        <svg class="ramita" viewBox="0 0 120 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><path d="M4 30C40 26 80 18 116 6"/><path d="M30 26c-2-8 4-14 12-14-1 8-6 13-12 14z"/><path d="M52 21c-2-8 4-14 12-14-1 8-6 13-12 14z"/><path d="M74 15c-2-7 4-12 11-12-1 7-6 11-11 12z"/><path d="M40 24c5 6 12 8 18 6-4-6-11-8-18-6z"/><path d="M62 18c5 6 12 8 18 6-4-6-11-8-18-6z"/><path d="M18 28c4 5 10 7 15 5-3-5-9-7-15-5z"/></svg>
+      </div>
+    </section>
+
+    <!-- ===== CARTA CON PESTAÑAS =====
+         Funciona solo con CSS: cada pestaña es un radio button. -->
+    <section class="menu">
+      <div class="contenedor">
+        <input type="radio" name="tab" id="tab-cafe" class="tab-radio" checked>
+        <input type="radio" name="tab" id="tab-dulce" class="tab-radio">
+        <input type="radio" name="tab" id="tab-salado" class="tab-radio">
+        <input type="radio" name="tab" id="tab-bebidas" class="tab-radio">
+
+        <div class="tabs">
+          <label for="tab-cafe">Café</label>
+          <label for="tab-dulce">Dulce</label>
+          <label for="tab-salado">Salado</label>
+          <label for="tab-bebidas">Bebidas</label>
+        </div>
+
+        <div class="listas">
+        <div class="lista-menu" id="lista-cafe">
+          <article class="producto">
+            <img src="img/cappuccino.jpg" alt="Cappuccino">
+            <div class="producto-info">
+              <h3>Cappuccino</h3>
+              <p>Café, leche vaporizada y espuma de leche.</p>
+              <span class="precio">$2.500</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/latte.jpg" alt="Latte">
+            <div class="producto-info">
+              <h3>Latte</h3>
+              <p>Café y leche vaporizada, suave y equilibrado.</p>
+              <span class="precio">$2.500</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/flat-white.jpg" alt="Flat White">
+            <div class="producto-info">
+              <h3>Flat White</h3>
+              <p>Café y leche vaporizada, textura suave.</p>
+              <span class="precio">$2.500</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/cold-brew.jpg" alt="Cold Brew">
+            <div class="producto-info">
+              <h3>Cold Brew</h3>
+              <p>Café en frío, de sabor limpio y refrescante.</p>
+              <span class="precio">$2.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/espresso.jpg" alt="Espresso">
+            <div class="producto-info">
+              <h3>Espresso</h3>
+              <p>Café concentrado, intenso y aromático.</p>
+              <span class="precio">$2.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/mocha.jpg" alt="Mocha">
+            <div class="producto-info">
+              <h3>Mocha</h3>
+              <p>Café, chocolate y leche vaporizada.</p>
+              <span class="precio">$3.500</span>
+            </div>
+          </article>
+        </div>
+        <div class="lista-menu" id="lista-dulce">
+          <article class="producto">
+            <img src="img/medialuna.jpg" alt="Croissant">
+            <div class="producto-info">
+              <h3>Croissant</h3>
+              <p>De manteca, hojaldrado y horneado todos los días.</p>
+              <span class="precio">$3.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/kanelbulle.jpg" alt="Kanelbulle">
+            <div class="producto-info">
+              <h3>Kanelbulle</h3>
+              <p>Roll de canela y cardamomo, clásico del fika sueco.</p>
+              <span class="precio">$3.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/croissant-bicolor.jpg" alt="Croissant bicolor">
+            <div class="producto-info">
+              <h3>Croissant bicolor</h3>
+              <p>Masa hojaldrada con capas de cacao.</p>
+              <span class="precio">$3.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/pain-chocolat.jpg" alt="Pain au chocolat">
+            <div class="producto-info">
+              <h3>Pain au chocolat</h3>
+              <p>Hojaldre de manteca relleno de chocolate semiamargo.</p>
+              <span class="precio">$3.000</span>
+            </div>
+          </article>
+        </div>
+<!-- Productos de ejemplo: cambiá nombres, descripciones y precios -->
+        <div class="lista-menu" id="lista-salado">
+          <article class="producto">
+            <img src="img/Tostada de masa madre.jpg" alt="Tostada de masa madre">
+            <div class="producto-info">
+              <h3>Tostado de masa madre</h3>
+          
+              <p>Jamón cocido y queso, en pan de masa madre.</p>
+              <span class="precio">$5.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Avocado toast.jpg" alt="Avocado toast">
+            <div class="producto-info">
+              <h3>Avocado toast</h3>
+              <p>Palta, huevo y semillas sobre pan de masa madre.</p>
+              <span class="precio">$5.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Bowl veggie.jpg" alt="Bowl veggie">
+            <div class="producto-info">
+              <h3>Bowl veggie</h3>
+              <p>Vegetales asados, hummus y hojas verdes.</p>
+              <span class="precio">$8.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Croissant salado.jpg" alt="Croissant salado">
+            <div class="producto-info">
+              <h3>Croissant salado</h3>
+              <p>Relleno de jamón crudo, rúcula y queso.</p>
+              <span class="precio">$5.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Quinche del dia.jpg" alt="Quiche del día">
+            <div class="producto-info">
+              <h3>Quiche del día</h3>
+              <p>Masa casera y relleno de estación.</p>
+              <span class="precio">$6.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Wrap de pollo.jpg" alt="Wrap de pollo">
+            <div class="producto-info">
+              <h3>Wrap de pollo</h3>
+              <p>Pollo grillado, vegetales y aderezo de yogur.</p>
+              <span class="precio">$6.000</span>
+            </div>
+          </article>
+        </div>
+        <div class="lista-menu" id="lista-bebidas">
+          <article class="producto">
+            <img src="img/Limonada.jpg" alt="Limonada">
+            <div class="producto-info">
+              <h3>Limonada</h3>
+              <p>Con menta y jengibre.</p>
+              <span class="precio">$2.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Jugo de naranja.jpg" alt="Jugo de naranja">
+            <div class="producto-info">
+              <h3>Jugo de naranja</h3>
+              <p>Exprimido en el momento.</p>
+              <span class="precio">$2.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Te en herbas.jpg" alt="Té en hebras">
+            <div class="producto-info">
+              <h3>Té en hebras</h3>
+              <p>Variedades negras, verdes y herbales.</p>
+              <span class="precio">$2.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/ Chai Latte.jpg" alt="Chai latte">
+            <div class="producto-info">
+              <h3>Chai latte</h3>
+              <p>Especias, té negro y leche vaporizada.</p>
+              <span class="precio">$3.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Matcha latte.jpg" alt="Matcha latte">
+            <div class="producto-info">
+              <h3>Matcha latte</h3>
+              <p>Té matcha y leche vaporizada.</p>
+              <span class="precio">$3.000</span>
+            </div>
+          </article>
+          <article class="producto">
+            <img src="img/Agua saborizada.jpg" alt="Agua saborizada">
+            <div class="producto-info">
+              <h3>Agua saborizada</h3>
+              <p>Con frutas de estación.</p>
+              <span class="precio">$3.000</span>
+            </div>
+          </article>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Fika Ritual &middot; Del Viso, Pilar</p>
+  </footer>
+
+</body>
+</html>

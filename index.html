@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Esta línea es clave para que la página sea responsive en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fika Ritual | Tu pausa. Tu ritual.</title>
+  <meta name="description" content="Fika Ritual: cafetería de especialidad, restó y panadería artesanal en Del Viso, Pilar.">
+
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER (igual en todas las páginas) ===== -->
+  <header class="header">
+    <div class="contenedor">
+      <a href="index.html" class="logo" aria-label="Fika Ritual, ir al inicio">
+        <span class="logo-fika">FIKA</span>
+        <span class="logo-ritual">RITUAL</span>
+      </a>
+
+      <!-- Checkbox escondido: abre y cierra el menú en celular -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html" class="activo">Inicio</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="fika.html">Fika</a></li>
+          <li><a href="espacio.html">Espacio</a></li>
+          <li><a href="info.html">Info</a></li>
+          <li class="solo-celular"><a href="info.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a href="info.html#contacto" class="boton boton-oliva">Contacto</a>
+
+      <!-- Botón hamburguesa (solo se ve en celular) -->
+      <label for="menu-toggle" class="hamburguesa" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <!-- Video de fondo: autoplay + muted + loop + playsinline para que
+           arranque solo (también en celular). El poster se ve mientras carga. -->
+      <video class="hero-foto" autoplay muted loop playsinline poster="img/hero-cafe-poster.jpg" aria-hidden="true">
+        <source src="video/hero-cafe.mp4" type="video/mp4">
+      </video>
+      <div class="contenedor hero-texto">
+        <h1>Tu pausa.<br>Tu ritual.</h1>
+        <svg class="ramita" viewBox="0 0 120 40" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" aria-hidden="true"><path d="M4 30C40 26 80 18 116 6"/><path d="M30 26c-2-8 4-14 12-14-1 8-6 13-12 14z"/><path d="M52 21c-2-8 4-14 12-14-1 8-6 13-12 14z"/><path d="M74 15c-2-7 4-12 11-12-1 7-6 11-11 12z"/><path d="M40 24c5 6 12 8 18 6-4-6-11-8-18-6z"/><path d="M62 18c5 6 12 8 18 6-4-6-11-8-18-6z"/><path d="M18 28c4 5 10 7 15 5-3-5-9-7-15-5z"/></svg>
+        <a href="fika.html" class="boton boton-terracota boton-grande">Conoce fika</a>
+      </div>
+    </section>
+
+    <!-- ===== CAFÉ / COMIDA / RITUAL / ESPACIO ===== -->
+    <section class="pilares">
+      <div class="contenedor">
+        <ul>
+          <li>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20h24v8a10 10 0 0 1-10 10h-4a10 10 0 0 1-10-10z"/><path d="M34 23h3a4 4 0 0 1 0 8h-4"/><path d="M8 42h30"/><path d="M18 8c-2 3 2 4 0 8M24 6c-2 3 2 4 0 8M30 8c-2 3 2 4 0 8"/></svg>
+            <h3>CAFÉ</h3>
+            <a href="menu.html" class="ver-mas">Ver más <span aria-hidden="true">&rarr;</span></a>
+          </li>
+          <li>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M40 8C20 8 8 18 10 38c20 2 30-10 30-30z"/><path d="M8 40L32 16"/><path d="M18 30h8M22 26v-8"/></svg>
+            <h3>COMIDA</h3>
+            <a href="menu.html#tab-salado" class="ver-mas">Ver más <span aria-hidden="true">&rarr;</span></a>
+          </li>
+          <li>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 40S7 29 7 18a8.5 8.5 0 0 1 17-2 8.5 8.5 0 0 1 17 2c0 11-17 22-17 22z"/></svg>
+            <h3>RITUAL</h3>
+            <a href="fika.html" class="ver-mas">Ver más <span aria-hidden="true">&rarr;</span></a>
+          </li>
+          <li>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44S10 28 10 19a14 14 0 0 1 28 0c0 9-14 25-14 25z"/><circle cx="24" cy="19" r="5"/></svg>
+            <h3>ESPACIO</h3>
+            <a href="espacio.html" class="ver-mas">Ver más <span aria-hidden="true">&rarr;</span></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="banda-verde"></div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Fika Ritual &middot; Del Viso, Pilar</p>
+  </footer>
+
+</body>
+</html>

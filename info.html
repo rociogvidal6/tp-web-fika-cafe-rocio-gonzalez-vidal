@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Esta línea es clave para que la página sea responsive en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Info y contacto | Fika Ritual</title>
+  <meta name="description" content="Fika Ritual: cafetería de especialidad, restó y panadería artesanal en Del Viso, Pilar.">
+
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER (igual en todas las páginas) ===== -->
+  <header class="header">
+    <div class="contenedor">
+      <a href="index.html" class="logo" aria-label="Fika Ritual, ir al inicio">
+        <span class="logo-fika">FIKA</span>
+        <span class="logo-ritual">RITUAL</span>
+      </a>
+
+      <!-- Checkbox escondido: abre y cierra el menú en celular -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="fika.html">Fika</a></li>
+          <li><a href="espacio.html">Espacio</a></li>
+          <li><a href="info.html" class="activo">Info</a></li>
+          <li class="solo-celular"><a href="info.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a href="info.html#contacto" class="boton boton-borde">Contacto</a>
+
+      <!-- Botón hamburguesa (solo se ve en celular) -->
+      <label for="menu-toggle" class="hamburguesa" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="contenedor info">
+
+        <!-- ===== UBICACIÓN ===== -->
+        <div class="ubicacion">
+          <h2>Ubicación</h2>
+          <span class="rayita"></span>
+          <!-- Mapa de Google Maps embebido -->
+          <iframe class="mapa"
+            src="https://maps.google.com/maps?q=Los%20Crisantemos%20392%2C%20Del%20Viso%2C%20Pilar&z=15&output=embed"
+            title="Mapa de Fika Ritual" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="direccion">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 44S10 28 10 19a14 14 0 0 1 28 0c0 9-14 25-14 25z"/><circle cx="24" cy="19" r="5"/></svg>
+            <p>Los Crisantemos 392,<br>Del Viso, Pilar.</p>
+          </div>
+          <a class="boton boton-terracota boton-grande" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/dir/?api=1&destination=Los+Crisantemos+392,+Del+Viso,+Pilar">Como llegar</a>
+        </div>
+
+        <!-- ===== HORARIOS Y CONTACTO ===== -->
+        <div class="contacto-col">
+          <h2>Horarios</h2>
+          <span class="rayita"></span>
+          <div class="horario">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M24 12v12l6 4"/></svg>
+            <p>Lunes a Viernes<br>8:30 - 22:30</p>
+          </div>
+          <div class="horario">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M24 12v12l6 4"/></svg>
+            <p>Sábados y Domingos<br>9:00 - 23:00</p>
+          </div>
+
+          <h2 id="contacto">Contactanos</h2>
+          <span class="rayita"></span>
+          <ul class="redes">
+            <li><a href="https://instagram.com/fika.ritual" target="_blank" rel="noopener"><span class="icono-circulo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="10" width="28" height="28" rx="7"/><circle cx="24" cy="24" r="6.5"/><circle cx="32" cy="16" r="1" fill="currentColor"/></svg></span>@Fika.ritual</a></li>
+            <li><a href="mailto:fikahola@gmail.com"><span class="icono-circulo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="13" width="32" height="22" rx="1"/><path d="M8 14l16 12 16-12M8 34l12-10M40 34L28 24"/></svg></span>fikahola@gmail.com</a></li>
+            <li><a href="tel:+54 9 11 3456 7789"><span class="icono-circulo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8l6 0 3 8-4 3c2 4 5 7 9 9l3-4 8 3v6c0 2-2 3-4 3C21 36 12 27 11 12c0-2 1-4 3-4z"/></svg></span>+54 9 11 3456 7789</a></li>
+            <li><a href="tel:+540000000000"><span class="icono-circulo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8l6 0 3 8-4 3c2 4 5 7 9 9l3-4 8 3v6c0 2-2 3-4 3C21 36 12 27 11 12c0-2 1-4 3-4z"/></svg></span></a></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Fika Ritual &middot; Del Viso, Pilar</p>
+  </footer>
+
+</body>
+</html>

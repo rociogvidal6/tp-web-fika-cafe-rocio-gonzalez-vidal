@@ -1,0 +1,1914 @@
+/* =========================================================
+   FIKA RITUAL — Hoja de estilos
+   Un solo archivo CSS para las 5 páginas.
+   Orden: 1) Variables  2) Base  3) Header  4) Botones
+          5) Secciones de cada página  6) Responsive
+   ========================================================= */
+
+
+/* ---------- 1. VARIABLES (colores y fuentes) ----------
+   Si querés cambiar un color en toda la página,
+   lo cambiás acá una sola vez. */
+:root {
+  --beige: #e9e3d8;        /* fondo general */
+  --beige-claro: #efeae1;  /* fondo de bandas / tarjetas */
+  --oliva: #5b5f3c;        /* verde de botones y detalles */
+  --oliva-oscuro: #3f4229;
+  --terracota: #b4603a;    /* botones naranjas */
+  --texto: #3a372d;        /* texto principal */
+  --texto-suave: #6b665a;  /* textos secundarios */
+  --linea: #c9c1b3;        /* líneas divisorias */
+
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+
+  --ancho-max: 1280px;     /* ancho máximo del contenido */
+  --margen: clamp(20px, 4vw, 56px); /* margen lateral que se adapta a la pantalla */
+}
+
+
+/* ---------- 2. BASE ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--beige);
+  color: var(--texto);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;   /* las imágenes nunca se salen de su contenedor */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+/* Contenedor centrado que usan todas las secciones */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 var(--margen);
+}
+
+/* Etiqueta chiquita en mayúsculas ("SOBRE NOSOTROS", etc.) */
+.etiqueta {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--texto);
+  margin-bottom: 10px;
+}
+
+/* Rayita corta debajo de los títulos */
+.rayita {
+  display: block;
+  width: 36px;
+  height: 2px;
+  background-color: var(--oliva);
+  margin: 14px 0 22px;
+}
+
+
+/* ---------- 3. HEADER / NAVEGACIÓN ---------- */
+.header {
+  background-color: var(--beige);
+  border-bottom: 1px solid var(--linea);
+  position: sticky;   /* queda fijo arriba al hacer scroll */
+  top: 0;
+  z-index: 100;
+}
+
+.header .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 96px;
+}
+
+/* Logo hecho con texto */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.logo-fika {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: 0.12em;
+  color: var(--oliva-oscuro);
+}
+
+.logo-ritual {
+  font-size: 10px;
+  letter-spacing: 0.45em;
+  margin-top: 6px;
+  margin-right: -0.45em; /* compensa el espaciado para que quede centrado */
+  color: var(--oliva);
+}
+
+/* Links del menú */
+.nav ul {
+  display: flex;
+  gap: clamp(28px, 4vw, 64px);
+}
+
+.nav a {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.nav a:hover,
+.nav a.activo {
+  border-bottom-color: var(--texto); /* subrayado de la página actual */
+}
+
+/* El botón hamburguesa, el checkbox y el link "Contacto" del menú
+   solo se usan en celular */
+.menu-toggle,
+.hamburguesa,
+.solo-celular {
+  display: none;
+}
+
+
+/* ---------- 4. BOTONES ---------- */
+.boton {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 2px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+}
+
+.boton-oliva {
+  background-color: var(--oliva);
+  color: var(--beige-claro);
+}
+
+.boton-oliva:hover {
+  background-color: var(--oliva-oscuro);
+}
+
+.boton-borde {
+  border: 1px solid var(--oliva-oscuro);
+  color: var(--oliva-oscuro);
+}
+
+.boton-borde:hover {
+  background-color: var(--oliva);
+  color: var(--beige-claro);
+}
+
+.boton-terracota {
+  background-color: var(--terracota);
+  color: #fff;
+}
+
+.boton-terracota:hover {
+  background-color: #9a4f2e;
+}
+
+/* Botón grande del hero ("Conoce fika", "Como llegar") */
+.boton-grande {
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  padding: 10px 36px;
+  border-radius: 4px;
+}
+
+
+/* ---------- 5A. INICIO ---------- */
+.hero {
+  position: relative;
+  height: min(80vh, 640px);
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* La foto ocupa todo el fondo del hero */
+.hero-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* recorta la foto sin deformarla */
+  object-position: center 55%;
+}
+
+/* El video de la portada se encuadra un poco a la derecha,
+   para que la taza no quede debajo del texto */
+video.hero-foto {
+  object-position: 65% center;
+}
+
+/* Si la persona pidió menos movimiento en su sistema, se oculta el
+   video y se ve la imagen fija (poster) como fondo */
+@media (prefers-reduced-motion: reduce) {
+  video.hero-foto {
+    display: none;
+  }
+
+  .hero {
+    background: url("../img/hero-cafe-poster.jpg") center / cover;
+  }
+}
+
+/* Degradé oscuro a la izquierda para que se lea el texto */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(40, 32, 20, 0.55) 0%, rgba(40, 32, 20, 0.15) 50%, transparent 75%);
+  z-index: 1;
+}
+
+.hero-texto {
+  position: relative;
+  z-index: 2;   /* queda por encima de la foto y del degradé */
+  color: #fff;
+}
+
+.hero-texto h1 {
+  font-size: clamp(44px, 6vw, 76px);
+}
+
+.ramita {
+  display: block;
+  width: 110px;
+  margin: 26px 0 30px;
+  color: #fff;
+}
+
+/* Las 4 columnas debajo del hero */
+.pilares {
+  background-color: var(--beige-claro);
+  padding: 48px 0;
+}
+
+.pilares ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.pilares li {
+  text-align: center;
+  padding: 10px 20px;
+  border-left: 1px solid var(--linea);
+}
+
+.pilares li:first-child {
+  border-left: none;
+}
+
+.pilares svg {
+  width: 40px;
+  height: 40px;
+  color: var(--texto);
+}
+
+.pilares h3 {
+  font-family: var(--sans);
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  margin: 20px 0 26px;
+}
+
+.ver-mas {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ver-mas span {
+  transition: transform 0.3s;
+}
+
+.ver-mas:hover span {
+  transform: translateX(5px);  /* la flechita se mueve al pasar el mouse */
+}
+
+/* Banda verde con textura al final */
+.banda-verde {
+  height: 90px;
+  background-color: var(--oliva);
+}
+
+
+/* ---------- 5B. MENÚ ---------- */
+.hero-chico {
+  position: relative;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  background-color: #565b37; /* verde del plato, completa el lado izquierdo */
+  overflow: hidden;
+}
+
+.hero-chico .hero-foto {
+  left: auto;
+  width: 75%;
+  object-position: center 30%;
+}
+
+.hero-chico .hero-texto h1 {
+  font-size: clamp(44px, 5vw, 64px);
+}
+
+.hero-chico .ramita {
+  margin: 14px 0 0;
+  width: 90px;
+}
+
+.menu {
+  padding: 40px 0 70px;
+  border-bottom: 1px solid var(--linea);
+}
+
+/* --- Pestañas hechas solo con CSS ---
+   Cada pestaña es un <input type="radio"> escondido + su <label>.
+   Cuando un radio está marcado (:checked), se muestra su lista. */
+.tab-radio {
+  display: none;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 34px;
+}
+
+.tabs label {
+  width: 140px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 10px 0;
+  border: 1px solid var(--linea);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tabs label:hover {
+  border-color: var(--oliva);
+}
+
+.lista-menu {
+  display: none;   /* todas las listas escondidas... */
+}
+
+/* ...y se muestra solo la que corresponde a la pestaña marcada */
+#tab-cafe:checked ~ .listas #lista-cafe,
+#tab-dulce:checked ~ .listas #lista-dulce,
+#tab-salado:checked ~ .listas #lista-salado,
+#tab-bebidas:checked ~ .listas #lista-bebidas {
+  display: grid;
+}
+
+/* Pestaña activa en verde */
+#tab-cafe:checked ~ .tabs label[for="tab-cafe"],
+#tab-dulce:checked ~ .tabs label[for="tab-dulce"],
+#tab-salado:checked ~ .tabs label[for="tab-salado"],
+#tab-bebidas:checked ~ .tabs label[for="tab-bebidas"] {
+  background-color: var(--oliva);
+  border-color: var(--oliva);
+  color: var(--beige-claro);
+}
+
+.lista-menu {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 60px;
+  row-gap: 18px;
+}
+
+.producto {
+  display: grid;
+  grid-template-columns: 92px 1fr auto;
+  gap: 0 30px;
+  align-items: start;
+}
+
+.producto img {
+  width: 92px;
+  height: 88px;
+  object-fit: cover;
+}
+
+.producto-info {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--linea);
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.producto h3 {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin: 14px 0 6px;
+}
+
+.producto p {
+  grid-column: 1;
+  font-size: 13px;
+  color: var(--texto-suave);
+  max-width: 190px;
+  line-height: 1.5;
+}
+
+.precio {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+/* Tarjeta simple para productos sin foto (dulce, salado, bebidas) */
+.producto.sin-foto {
+  grid-template-columns: 1fr;
+}
+
+.producto.sin-foto .producto-info {
+  grid-column: 1;
+}
+
+
+/* ---------- 5C. FIKA (sobre nosotros) ---------- */
+.bloque {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+.bloque h2 {
+  font-size: clamp(26px, 2.6vw, 34px);
+}
+
+.bloque p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.sobre {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.sobre p {
+  max-width: 380px;
+}
+
+.foto-ancha {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+
+.origen {
+  display: grid;
+  grid-template-columns: 0.85fr 2fr;
+}
+
+.origen-texto {
+  padding-right: 34px;
+  border-right: 1px solid var(--linea);
+}
+
+.esencia {
+  padding-left: 34px;
+}
+
+.esencia ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.esencia li {
+  padding: 0 22px;
+  border-left: 1px solid var(--linea);
+}
+
+.esencia li:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+/* Círculo beige con el ícono adentro */
+.icono-circulo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ddd5c6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.icono-circulo svg {
+  width: 26px;
+  height: 26px;
+}
+
+.esencia h3 {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.esencia p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.el-espacio {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+  border-bottom: none;
+}
+
+.el-espacio img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center 60%;
+}
+
+
+/* ---------- 5D. ESPACIO ---------- */
+.espacio-intro {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 40px;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.espacio-intro h1 {
+  font-size: clamp(34px, 3.4vw, 44px);
+  font-weight: 600;
+}
+
+.espacio-intro .rayita {
+  margin-bottom: 40px;
+}
+
+.espacio-intro img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+.ambientes {
+  border-top: 1px solid var(--linea);
+  padding: 22px 0 40px;
+  text-align: center;
+}
+
+.ambientes h2 {
+  font-size: clamp(30px, 3vw, 38px);
+  font-weight: 600;
+}
+
+.subtitulo {
+  font-size: 15px;
+  margin-bottom: 26px;
+}
+
+.ambientes ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.ambientes li {
+  padding: 0 32px;
+  border-left: 1px solid var(--linea);
+}
+
+.ambientes li:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.ambientes li:last-child {
+  padding-right: 0;
+}
+
+/* Contenedor de la foto: sirve para hacer zoom al pasar el mouse */
+.ambiente-foto {
+  overflow: hidden;
+}
+
+.ambiente-foto img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.ambientes li:hover .ambiente-foto img {
+  transform: scale(1.05);
+}
+
+.ambientes .icono-circulo {
+  width: 64px;
+  height: 64px;
+  margin: 14px auto 12px;
+}
+
+.ambientes .icono-circulo svg {
+  width: 32px;
+  height: 32px;
+}
+
+.ambientes h3 {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+
+/* ---------- 5E. INFO ---------- */
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.info h2 {
+  font-size: clamp(30px, 3vw, 38px);
+  font-weight: 600;
+}
+
+.ubicacion {
+  padding-right: 56px;
+  border-right: 1px solid var(--linea);
+}
+
+.mapa {
+  width: 100%;
+  height: 360px;
+  border: 1px solid var(--texto-suave);
+  display: block;
+}
+
+.direccion {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin: 26px 0 22px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.direccion svg {
+  width: 32px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.contacto-col {
+  padding-left: 56px;
+}
+
+.horario {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--linea);
+  max-width: 380px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.horario:first-of-type {
+  padding-top: 0;
+}
+
+.horario svg {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+#contacto {
+  margin-top: 30px;
+  scroll-margin-top: 120px; /* para que el header no lo tape al saltar */
+}
+
+.redes li a {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 8px 0;
+  font-size: 17px;
+}
+
+.redes .icono-circulo {
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  transition: background-color 0.3s;
+}
+
+.redes a:hover .icono-circulo {
+  background-color: #cfc5b2;
+}
+
+
+/* ---------- 5F. TIENDA ---------- */
+.hero-tienda {
+  background-color: #4f5a34; /* verde del fondo de la foto */
+}
+
+/* En la tienda la foto ocupa todo el ancho */
+.hero-tienda .hero-foto {
+  width: 100%;
+  object-position: center 45%;
+}
+
+/* Degradé verde a la izquierda para que se lea el texto */
+.hero-tienda::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(55, 62, 34, 0.9) 0%, rgba(55, 62, 34, 0.55) 35%, transparent 65%);
+  z-index: 1;
+}
+
+.hero-bajada {
+  margin-top: 14px;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+}
+
+.tienda {
+  padding: 40px 0 70px;
+  border-bottom: 1px solid var(--linea);
+}
+
+/* Filtros: misma lógica que las pestañas del menú */
+#f-todos:checked ~ .tabs label[for="f-todos"],
+#f-blend:checked ~ .tabs label[for="f-blend"],
+#f-origen:checked ~ .tabs label[for="f-origen"] {
+  background-color: var(--oliva);
+  border-color: var(--oliva);
+  color: var(--beige-claro);
+}
+
+#f-blend:checked ~ .grilla-cafes .cafe:not(.cat-blend),
+#f-origen:checked ~ .grilla-cafes .cafe:not(.cat-origen) {
+  display: none;
+}
+
+.grilla-cafes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Tarjeta de producto */
+.cafe {
+  background-color: var(--beige-claro);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.cafe:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(58, 55, 45, 0.12);
+}
+
+/* Los radio buttons quedan invisibles pero se pueden usar con teclado */
+.cafe input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cafe-foto {
+  background-color: #ddd5c6;
+  display: flex;
+  justify-content: center;
+  padding: 28px 0 14px;
+}
+
+.bolsa {
+  width: 62%;
+  max-width: 220px;
+  height: auto;
+  transition: transform 0.5s;
+}
+
+.cafe:hover .bolsa {
+  transform: rotate(-3deg) scale(1.03);
+}
+
+.cafe-info {
+  padding: 24px 26px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cafe-info .etiqueta {
+  font-size: 10px;
+  color: var(--texto-suave);
+  margin-bottom: 6px;
+}
+
+.cafe-info h3 {
+  font-size: 26px;
+}
+
+.cafe-notas {
+  font-size: 13px;
+  color: var(--terracota);
+  letter-spacing: 0.04em;
+  margin: 6px 0 10px;
+}
+
+.cafe-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.opciones {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.opciones > span {
+  width: 70px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chips label {
+  font-size: 12px;
+  padding: 5px 12px;
+  border: 1px solid var(--linea);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.chips label:hover {
+  border-color: var(--oliva);
+}
+
+/* Opción elegida en verde */
+.op-250:checked ~ .cafe-info .chips label[for$="-250"],
+.op-500:checked ~ .cafe-info .chips label[for$="-500"],
+.op-1000:checked ~ .cafe-info .chips label[for$="-1000"],
+.op-grano:checked ~ .cafe-info .chips label[for$="-grano"],
+.op-molido:checked ~ .cafe-info .chips label[for$="-molido"] {
+  background-color: var(--oliva);
+  border-color: var(--oliva);
+  color: var(--beige-claro);
+}
+
+/* Borde visible al moverse con el teclado (tecla Tab) */
+.op-250:focus-visible ~ .cafe-info .chips label[for$="-250"],
+.op-500:focus-visible ~ .cafe-info .chips label[for$="-500"],
+.op-1000:focus-visible ~ .cafe-info .chips label[for$="-1000"],
+.op-grano:focus-visible ~ .cafe-info .chips label[for$="-grano"],
+.op-molido:focus-visible ~ .cafe-info .chips label[for$="-molido"] {
+  outline: 2px solid var(--terracota);
+  outline-offset: 2px;
+}
+
+.cafe-compra {
+  margin-top: auto;   /* empuja el precio y el botón al fondo de la tarjeta */
+  padding-top: 16px;
+  border-top: 1px solid var(--linea);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cafe-precio {
+  font-family: var(--serif);
+  font-size: 24px;
+}
+
+/* Se muestra solo el precio del peso elegido */
+.cafe-precio span {
+  display: none;
+}
+
+.op-250:checked ~ .cafe-info .pr-250,
+.op-500:checked ~ .cafe-info .pr-500,
+.op-1000:checked ~ .cafe-info .pr-1000 {
+  display: inline;
+}
+
+/* Hay un botón por combinación (peso + molienda), cada uno con su
+   mensaje de WhatsApp. Se muestra solo el que coincide con lo elegido. */
+.btn-comprar {
+  display: none;
+}
+
+.op-250:checked ~ .op-grano:checked ~ .cafe-info .c-250-grano,
+.op-250:checked ~ .op-molido:checked ~ .cafe-info .c-250-molido,
+.op-500:checked ~ .op-grano:checked ~ .cafe-info .c-500-grano,
+.op-500:checked ~ .op-molido:checked ~ .cafe-info .c-500-molido,
+.op-1000:checked ~ .op-grano:checked ~ .cafe-info .c-1000-grano,
+.op-1000:checked ~ .op-molido:checked ~ .cafe-info .c-1000-molido {
+  display: inline-block;
+}
+
+/* Cómo comprar */
+.como-comprar {
+  padding: 40px 0 60px;
+  text-align: center;
+}
+
+.como-comprar h2 {
+  font-size: clamp(30px, 3vw, 38px);
+  font-weight: 600;
+}
+
+.como-comprar .rayita {
+  margin: 14px auto 34px;
+}
+
+.como-comprar ol {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  counter-reset: paso;
+}
+
+.como-comprar li {
+  padding: 0 32px;
+  border-left: 1px solid var(--linea);
+  counter-increment: paso;
+}
+
+.como-comprar li:first-child {
+  border-left: none;
+}
+
+.como-comprar .icono-circulo {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+}
+
+.como-comprar .icono-circulo svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Número de paso antes del título: "1. Elegí tu café" */
+.como-comprar h3::before {
+  content: counter(paso) ". ";
+}
+
+.como-comprar h3 {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.como-comprar p {
+  font-size: 14px;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+
+/* ---------- 5G. CARRITO (solo CSS) ----------
+   Cómo funciona:
+   - Cada producto del carrito es un checkbox (.cart-check).
+   - Los botones "Agregar al carrito" son <label> que lo tildan.
+   - Si el checkbox está tildado, se muestra su fila en el carrito.
+   - El total se suma con contadores de CSS (counter-increment). */
+
+/* Checkboxes y radios que controlan el carrito: invisibles, pero
+   NO con display:none, porque así los contadores no sumarían. */
+.toggle-oculto,
+.cart-check,
+.op-entrega {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Contadores: cantidad de productos y total (en miles de pesos) */
+.tienda-form {
+  counter-reset: items total;
+}
+
+.cart-check:checked {
+  counter-increment: items 1 total var(--precio);
+}
+
+.op-envio:checked {
+  counter-increment: total 3;   /* envío: $3.000 */
+}
+
+/* Texto del botón: "Agregar al carrito" / "✓ Agregado" */
+.t-ok {
+  display: none;
+}
+
+.btn-comprar {
+  white-space: nowrap;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  padding: 12px 18px;
+  user-select: none;
+}
+
+/* Fondo oscuro detrás del panel */
+.carrito-fondo {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(30, 28, 20, 0.45);
+  z-index: 250;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+  cursor: pointer;
+}
+
+/* Panel lateral */
+.carrito {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(440px, 100%);
+  height: 100%;
+  background-color: var(--beige);
+  z-index: 300;
+  overflow-y: auto;
+  transform: translateX(100%);   /* escondido a la derecha */
+  transition: transform 0.45s ease;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+}
+
+#ver-carrito:checked ~ .carrito {
+  transform: translateX(0);      /* entra deslizando */
+}
+
+#ver-carrito:checked ~ .carrito-fondo {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Con el carrito abierto, la página de atrás no se mueve */
+body:has(#ver-carrito:checked) {
+  overflow: hidden;
+}
+
+.paso {
+  padding: 26px 28px 30px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Paso 2 (pago) escondido hasta tocar "Ir a pagar" */
+.paso-2 {
+  display: none;
+}
+
+/* Ojo: el paso 1 NO se esconde con display:none, porque adentro
+   están los checkboxes y los contadores dejarían de sumar el total */
+#paso-pago:checked ~ .carrito .paso-1 {
+  position: absolute;
+  visibility: hidden;
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#paso-pago:checked ~ .carrito .paso-2 {
+  display: flex;
+}
+
+.carrito-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--linea);
+  margin-bottom: 8px;
+}
+
+.carrito h2 {
+  font-size: 30px;
+}
+
+.paso-2 h2 {
+  margin: 10px 0 6px;
+}
+
+.carrito-cerrar {
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.volver,
+.seguir {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.volver:hover,
+.seguir:hover {
+  color: var(--terracota);
+}
+
+/* Filas de productos: se muestran solo las tildadas */
+.item {
+  display: none;
+  grid-template-columns: 12px 1fr auto 24px;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--linea);
+}
+
+.cart-check:checked + .item {
+  display: grid;
+}
+
+.item-color {
+  width: 12px;
+  height: 40px;
+  border-radius: 2px;
+}
+
+.item-nombre {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.item-detalle {
+  font-size: 12px;
+  color: var(--texto-suave);
+}
+
+.item-precio {
+  font-size: 15px;
+}
+
+.item-quitar {
+  font-size: 22px;
+  line-height: 1;
+  color: var(--texto-suave);
+  cursor: pointer;
+  text-align: center;
+}
+
+.item-quitar:hover {
+  color: var(--terracota);
+}
+
+/* Carrito vacío */
+.carrito-vacio {
+  text-align: center;
+  font-size: 14px;
+  color: var(--texto-suave);
+  padding: 50px 10px;
+}
+
+.carrito-lista:has(.cart-check:checked) .carrito-vacio {
+  display: none;
+}
+
+/* Si está vacío, no se muestra ni el subtotal ni "Ir a pagar" */
+.carrito:not(:has(.cart-check:checked)) .carrito-total,
+.carrito:not(:has(.cart-check:checked)) .ir-pagar {
+  display: none;
+}
+
+.carrito-pie {
+  margin-top: auto;
+  padding-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+
+.carrito-total {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--serif);
+  font-size: 22px;
+}
+
+/* El total sale del contador: $ + número + ".000" */
+.total-subtotal::after,
+.total-final::after {
+  content: "$" counter(total) ".000";
+}
+
+.boton-pagar {
+  border: none;
+  font-size: 14px;
+  padding: 15px 28px;
+}
+
+.boton-pagar::after {
+  content: " $" counter(total) ".000";
+}
+
+/* Formulario de pago */
+.carrito fieldset {
+  border: none;
+  margin-top: 18px;
+}
+
+.carrito legend {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.opcion-entrega {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--linea);
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.op-entrega:checked + .opcion-entrega {
+  border-color: var(--oliva);
+  background-color: var(--beige-claro);
+  box-shadow: inset 3px 0 0 var(--oliva);
+}
+
+.op-entrega:focus-visible + .opcion-entrega {
+  outline: 2px solid var(--terracota);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.campo input {
+  width: 100%;
+  min-width: 0;
+  font-family: var(--sans);
+  font-size: 15px;
+  padding: 11px 12px;
+  border: 1px solid var(--linea);
+  background-color: var(--beige-claro);
+  color: var(--texto);
+  border-radius: 2px;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: var(--oliva);
+}
+
+/* La dirección aparece solo si se elige envío */
+.solo-envio {
+  display: none;
+}
+
+.carrito:has(#envio:checked) .solo-envio {
+  display: flex;
+}
+
+.campos-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.campos-fila > * {
+  min-width: 0;
+}
+
+.aviso-simulado {
+  font-size: 12px;
+  color: var(--terracota);
+  background-color: #f1e1d6;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+}
+
+/* Botón flotante del carrito */
+.carrito-flotante {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background-color: var(--oliva);
+  color: var(--beige-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.carrito-flotante:hover {
+  transform: scale(1.06);
+  background-color: var(--oliva-oscuro);
+}
+
+.carrito-flotante svg {
+  width: 30px;
+  height: 30px;
+}
+
+.carrito-cantidad {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 12px;
+  background-color: var(--terracota);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrito-cantidad::after {
+  content: counter(items);
+}
+
+.tienda-form:not(:has(.cart-check:checked)) .carrito-cantidad {
+  display: none;
+}
+
+
+/* ---------- 5H. CONFIRMACIÓN DE COMPRA ---------- */
+.confirmacion {
+  padding: 90px 0 100px;
+  text-align: center;
+}
+
+.confirmacion-icono {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 22px;
+  background-color: var(--oliva);
+  color: var(--beige-claro);
+}
+
+.confirmacion-icono svg {
+  width: 38px;
+  height: 38px;
+}
+
+.confirmacion h1 {
+  font-size: clamp(36px, 4vw, 52px);
+}
+
+.confirmacion .rayita {
+  margin: 18px auto 26px;
+}
+
+.confirmacion p {
+  max-width: 520px;
+  margin: 0 auto 12px;
+}
+
+.confirmacion-botones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+
+/* >>> GENERADO: botón "Agregado" (no editar a mano) */
+.tienda-form:has(#add-blend-ritual-250-grano:checked) .btn-comprar[for="add-blend-ritual-250-grano"] .t-add,
+.tienda-form:has(#add-blend-ritual-250-molido:checked) .btn-comprar[for="add-blend-ritual-250-molido"] .t-add,
+.tienda-form:has(#add-blend-ritual-500-grano:checked) .btn-comprar[for="add-blend-ritual-500-grano"] .t-add,
+.tienda-form:has(#add-blend-ritual-500-molido:checked) .btn-comprar[for="add-blend-ritual-500-molido"] .t-add,
+.tienda-form:has(#add-blend-ritual-1000-grano:checked) .btn-comprar[for="add-blend-ritual-1000-grano"] .t-add,
+.tienda-form:has(#add-blend-ritual-1000-molido:checked) .btn-comprar[for="add-blend-ritual-1000-molido"] .t-add,
+.tienda-form:has(#add-blend-nordico-250-grano:checked) .btn-comprar[for="add-blend-nordico-250-grano"] .t-add,
+.tienda-form:has(#add-blend-nordico-250-molido:checked) .btn-comprar[for="add-blend-nordico-250-molido"] .t-add,
+.tienda-form:has(#add-blend-nordico-500-grano:checked) .btn-comprar[for="add-blend-nordico-500-grano"] .t-add,
+.tienda-form:has(#add-blend-nordico-500-molido:checked) .btn-comprar[for="add-blend-nordico-500-molido"] .t-add,
+.tienda-form:has(#add-blend-nordico-1000-grano:checked) .btn-comprar[for="add-blend-nordico-1000-grano"] .t-add,
+.tienda-form:has(#add-blend-nordico-1000-molido:checked) .btn-comprar[for="add-blend-nordico-1000-molido"] .t-add,
+.tienda-form:has(#add-brasil-cerrado-250-grano:checked) .btn-comprar[for="add-brasil-cerrado-250-grano"] .t-add,
+.tienda-form:has(#add-brasil-cerrado-250-molido:checked) .btn-comprar[for="add-brasil-cerrado-250-molido"] .t-add,
+.tienda-form:has(#add-brasil-cerrado-500-grano:checked) .btn-comprar[for="add-brasil-cerrado-500-grano"] .t-add,
+.tienda-form:has(#add-brasil-cerrado-500-molido:checked) .btn-comprar[for="add-brasil-cerrado-500-molido"] .t-add,
+.tienda-form:has(#add-brasil-cerrado-1000-grano:checked) .btn-comprar[for="add-brasil-cerrado-1000-grano"] .t-add,
+.tienda-form:has(#add-brasil-cerrado-1000-molido:checked) .btn-comprar[for="add-brasil-cerrado-1000-molido"] .t-add,
+.tienda-form:has(#add-colombia-huila-250-grano:checked) .btn-comprar[for="add-colombia-huila-250-grano"] .t-add,
+.tienda-form:has(#add-colombia-huila-250-molido:checked) .btn-comprar[for="add-colombia-huila-250-molido"] .t-add,
+.tienda-form:has(#add-colombia-huila-500-grano:checked) .btn-comprar[for="add-colombia-huila-500-grano"] .t-add,
+.tienda-form:has(#add-colombia-huila-500-molido:checked) .btn-comprar[for="add-colombia-huila-500-molido"] .t-add,
+.tienda-form:has(#add-colombia-huila-1000-grano:checked) .btn-comprar[for="add-colombia-huila-1000-grano"] .t-add,
+.tienda-form:has(#add-colombia-huila-1000-molido:checked) .btn-comprar[for="add-colombia-huila-1000-molido"] .t-add,
+.tienda-form:has(#add-peru-cajamarca-250-grano:checked) .btn-comprar[for="add-peru-cajamarca-250-grano"] .t-add,
+.tienda-form:has(#add-peru-cajamarca-250-molido:checked) .btn-comprar[for="add-peru-cajamarca-250-molido"] .t-add,
+.tienda-form:has(#add-peru-cajamarca-500-grano:checked) .btn-comprar[for="add-peru-cajamarca-500-grano"] .t-add,
+.tienda-form:has(#add-peru-cajamarca-500-molido:checked) .btn-comprar[for="add-peru-cajamarca-500-molido"] .t-add,
+.tienda-form:has(#add-peru-cajamarca-1000-grano:checked) .btn-comprar[for="add-peru-cajamarca-1000-grano"] .t-add,
+.tienda-form:has(#add-peru-cajamarca-1000-molido:checked) .btn-comprar[for="add-peru-cajamarca-1000-molido"] .t-add,
+.tienda-form:has(#add-etiopia-yirgacheffe-250-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-250-grano"] .t-add,
+.tienda-form:has(#add-etiopia-yirgacheffe-250-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-250-molido"] .t-add,
+.tienda-form:has(#add-etiopia-yirgacheffe-500-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-500-grano"] .t-add,
+.tienda-form:has(#add-etiopia-yirgacheffe-500-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-500-molido"] .t-add,
+.tienda-form:has(#add-etiopia-yirgacheffe-1000-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-1000-grano"] .t-add,
+.tienda-form:has(#add-etiopia-yirgacheffe-1000-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-1000-molido"] .t-add {
+  display: none;
+}
+
+.tienda-form:has(#add-blend-ritual-250-grano:checked) .btn-comprar[for="add-blend-ritual-250-grano"] .t-ok,
+.tienda-form:has(#add-blend-ritual-250-molido:checked) .btn-comprar[for="add-blend-ritual-250-molido"] .t-ok,
+.tienda-form:has(#add-blend-ritual-500-grano:checked) .btn-comprar[for="add-blend-ritual-500-grano"] .t-ok,
+.tienda-form:has(#add-blend-ritual-500-molido:checked) .btn-comprar[for="add-blend-ritual-500-molido"] .t-ok,
+.tienda-form:has(#add-blend-ritual-1000-grano:checked) .btn-comprar[for="add-blend-ritual-1000-grano"] .t-ok,
+.tienda-form:has(#add-blend-ritual-1000-molido:checked) .btn-comprar[for="add-blend-ritual-1000-molido"] .t-ok,
+.tienda-form:has(#add-blend-nordico-250-grano:checked) .btn-comprar[for="add-blend-nordico-250-grano"] .t-ok,
+.tienda-form:has(#add-blend-nordico-250-molido:checked) .btn-comprar[for="add-blend-nordico-250-molido"] .t-ok,
+.tienda-form:has(#add-blend-nordico-500-grano:checked) .btn-comprar[for="add-blend-nordico-500-grano"] .t-ok,
+.tienda-form:has(#add-blend-nordico-500-molido:checked) .btn-comprar[for="add-blend-nordico-500-molido"] .t-ok,
+.tienda-form:has(#add-blend-nordico-1000-grano:checked) .btn-comprar[for="add-blend-nordico-1000-grano"] .t-ok,
+.tienda-form:has(#add-blend-nordico-1000-molido:checked) .btn-comprar[for="add-blend-nordico-1000-molido"] .t-ok,
+.tienda-form:has(#add-brasil-cerrado-250-grano:checked) .btn-comprar[for="add-brasil-cerrado-250-grano"] .t-ok,
+.tienda-form:has(#add-brasil-cerrado-250-molido:checked) .btn-comprar[for="add-brasil-cerrado-250-molido"] .t-ok,
+.tienda-form:has(#add-brasil-cerrado-500-grano:checked) .btn-comprar[for="add-brasil-cerrado-500-grano"] .t-ok,
+.tienda-form:has(#add-brasil-cerrado-500-molido:checked) .btn-comprar[for="add-brasil-cerrado-500-molido"] .t-ok,
+.tienda-form:has(#add-brasil-cerrado-1000-grano:checked) .btn-comprar[for="add-brasil-cerrado-1000-grano"] .t-ok,
+.tienda-form:has(#add-brasil-cerrado-1000-molido:checked) .btn-comprar[for="add-brasil-cerrado-1000-molido"] .t-ok,
+.tienda-form:has(#add-colombia-huila-250-grano:checked) .btn-comprar[for="add-colombia-huila-250-grano"] .t-ok,
+.tienda-form:has(#add-colombia-huila-250-molido:checked) .btn-comprar[for="add-colombia-huila-250-molido"] .t-ok,
+.tienda-form:has(#add-colombia-huila-500-grano:checked) .btn-comprar[for="add-colombia-huila-500-grano"] .t-ok,
+.tienda-form:has(#add-colombia-huila-500-molido:checked) .btn-comprar[for="add-colombia-huila-500-molido"] .t-ok,
+.tienda-form:has(#add-colombia-huila-1000-grano:checked) .btn-comprar[for="add-colombia-huila-1000-grano"] .t-ok,
+.tienda-form:has(#add-colombia-huila-1000-molido:checked) .btn-comprar[for="add-colombia-huila-1000-molido"] .t-ok,
+.tienda-form:has(#add-peru-cajamarca-250-grano:checked) .btn-comprar[for="add-peru-cajamarca-250-grano"] .t-ok,
+.tienda-form:has(#add-peru-cajamarca-250-molido:checked) .btn-comprar[for="add-peru-cajamarca-250-molido"] .t-ok,
+.tienda-form:has(#add-peru-cajamarca-500-grano:checked) .btn-comprar[for="add-peru-cajamarca-500-grano"] .t-ok,
+.tienda-form:has(#add-peru-cajamarca-500-molido:checked) .btn-comprar[for="add-peru-cajamarca-500-molido"] .t-ok,
+.tienda-form:has(#add-peru-cajamarca-1000-grano:checked) .btn-comprar[for="add-peru-cajamarca-1000-grano"] .t-ok,
+.tienda-form:has(#add-peru-cajamarca-1000-molido:checked) .btn-comprar[for="add-peru-cajamarca-1000-molido"] .t-ok,
+.tienda-form:has(#add-etiopia-yirgacheffe-250-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-250-grano"] .t-ok,
+.tienda-form:has(#add-etiopia-yirgacheffe-250-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-250-molido"] .t-ok,
+.tienda-form:has(#add-etiopia-yirgacheffe-500-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-500-grano"] .t-ok,
+.tienda-form:has(#add-etiopia-yirgacheffe-500-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-500-molido"] .t-ok,
+.tienda-form:has(#add-etiopia-yirgacheffe-1000-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-1000-grano"] .t-ok,
+.tienda-form:has(#add-etiopia-yirgacheffe-1000-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-1000-molido"] .t-ok {
+  display: inline;
+}
+
+.tienda-form:has(#add-blend-ritual-250-grano:checked) .btn-comprar[for="add-blend-ritual-250-grano"],
+.tienda-form:has(#add-blend-ritual-250-molido:checked) .btn-comprar[for="add-blend-ritual-250-molido"],
+.tienda-form:has(#add-blend-ritual-500-grano:checked) .btn-comprar[for="add-blend-ritual-500-grano"],
+.tienda-form:has(#add-blend-ritual-500-molido:checked) .btn-comprar[for="add-blend-ritual-500-molido"],
+.tienda-form:has(#add-blend-ritual-1000-grano:checked) .btn-comprar[for="add-blend-ritual-1000-grano"],
+.tienda-form:has(#add-blend-ritual-1000-molido:checked) .btn-comprar[for="add-blend-ritual-1000-molido"],
+.tienda-form:has(#add-blend-nordico-250-grano:checked) .btn-comprar[for="add-blend-nordico-250-grano"],
+.tienda-form:has(#add-blend-nordico-250-molido:checked) .btn-comprar[for="add-blend-nordico-250-molido"],
+.tienda-form:has(#add-blend-nordico-500-grano:checked) .btn-comprar[for="add-blend-nordico-500-grano"],
+.tienda-form:has(#add-blend-nordico-500-molido:checked) .btn-comprar[for="add-blend-nordico-500-molido"],
+.tienda-form:has(#add-blend-nordico-1000-grano:checked) .btn-comprar[for="add-blend-nordico-1000-grano"],
+.tienda-form:has(#add-blend-nordico-1000-molido:checked) .btn-comprar[for="add-blend-nordico-1000-molido"],
+.tienda-form:has(#add-brasil-cerrado-250-grano:checked) .btn-comprar[for="add-brasil-cerrado-250-grano"],
+.tienda-form:has(#add-brasil-cerrado-250-molido:checked) .btn-comprar[for="add-brasil-cerrado-250-molido"],
+.tienda-form:has(#add-brasil-cerrado-500-grano:checked) .btn-comprar[for="add-brasil-cerrado-500-grano"],
+.tienda-form:has(#add-brasil-cerrado-500-molido:checked) .btn-comprar[for="add-brasil-cerrado-500-molido"],
+.tienda-form:has(#add-brasil-cerrado-1000-grano:checked) .btn-comprar[for="add-brasil-cerrado-1000-grano"],
+.tienda-form:has(#add-brasil-cerrado-1000-molido:checked) .btn-comprar[for="add-brasil-cerrado-1000-molido"],
+.tienda-form:has(#add-colombia-huila-250-grano:checked) .btn-comprar[for="add-colombia-huila-250-grano"],
+.tienda-form:has(#add-colombia-huila-250-molido:checked) .btn-comprar[for="add-colombia-huila-250-molido"],
+.tienda-form:has(#add-colombia-huila-500-grano:checked) .btn-comprar[for="add-colombia-huila-500-grano"],
+.tienda-form:has(#add-colombia-huila-500-molido:checked) .btn-comprar[for="add-colombia-huila-500-molido"],
+.tienda-form:has(#add-colombia-huila-1000-grano:checked) .btn-comprar[for="add-colombia-huila-1000-grano"],
+.tienda-form:has(#add-colombia-huila-1000-molido:checked) .btn-comprar[for="add-colombia-huila-1000-molido"],
+.tienda-form:has(#add-peru-cajamarca-250-grano:checked) .btn-comprar[for="add-peru-cajamarca-250-grano"],
+.tienda-form:has(#add-peru-cajamarca-250-molido:checked) .btn-comprar[for="add-peru-cajamarca-250-molido"],
+.tienda-form:has(#add-peru-cajamarca-500-grano:checked) .btn-comprar[for="add-peru-cajamarca-500-grano"],
+.tienda-form:has(#add-peru-cajamarca-500-molido:checked) .btn-comprar[for="add-peru-cajamarca-500-molido"],
+.tienda-form:has(#add-peru-cajamarca-1000-grano:checked) .btn-comprar[for="add-peru-cajamarca-1000-grano"],
+.tienda-form:has(#add-peru-cajamarca-1000-molido:checked) .btn-comprar[for="add-peru-cajamarca-1000-molido"],
+.tienda-form:has(#add-etiopia-yirgacheffe-250-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-250-grano"],
+.tienda-form:has(#add-etiopia-yirgacheffe-250-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-250-molido"],
+.tienda-form:has(#add-etiopia-yirgacheffe-500-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-500-grano"],
+.tienda-form:has(#add-etiopia-yirgacheffe-500-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-500-molido"],
+.tienda-form:has(#add-etiopia-yirgacheffe-1000-grano:checked) .btn-comprar[for="add-etiopia-yirgacheffe-1000-grano"],
+.tienda-form:has(#add-etiopia-yirgacheffe-1000-molido:checked) .btn-comprar[for="add-etiopia-yirgacheffe-1000-molido"] {
+  background-color: var(--oliva);
+}
+/* <<< GENERADO */
+
+
+/* ---------- FOOTER ---------- */
+.footer {
+  padding: 30px 0;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+
+/* =========================================================
+   6. RESPONSIVE
+   Primero los estilos de computadora (arriba) y acá
+   ajustamos para tablet y celular con @media.
+   ========================================================= */
+
+/* ---- TABLET (hasta 1024px) ---- */
+@media (max-width: 1024px) {
+
+  .nav ul {
+    gap: 24px;
+  }
+
+  .origen {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .origen-texto {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .esencia {
+    padding-left: 0;
+  }
+
+  .el-espacio {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .el-espacio .el-espacio-texto {
+    grid-column: 1 / 3;   /* el texto ocupa todo el ancho */
+    grid-row: 1;
+  }
+
+  .ambientes li {
+    padding: 0 16px;
+  }
+
+  .grilla-cafes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ---- CELULAR (hasta 768px) ---- */
+@media (max-width: 768px) {
+
+  /* --- Menú hamburguesa (solo CSS) ---
+     El checkbox escondido guarda si el menú está abierto o cerrado. */
+  .header .contenedor {
+    height: 76px;
+  }
+
+  .logo-fika {
+    font-size: 32px;
+  }
+
+  .hamburguesa {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px 0;
+    order: 3;
+  }
+
+  .hamburguesa span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background-color: var(--oliva-oscuro);
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  /* El menú se esconde arriba y aparece al tocar la hamburguesa */
+  .nav {
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background-color: var(--beige);
+    border-bottom: 1px solid var(--linea);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    padding: 26px 0 32px;
+  }
+
+  .menu-toggle:checked ~ .nav {
+    max-height: 400px;
+  }
+
+  .solo-celular {
+    display: block;
+  }
+
+  /* La hamburguesa se convierte en una X */
+  .menu-toggle:checked ~ .hamburguesa span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle:checked ~ .hamburguesa span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle:checked ~ .hamburguesa span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .header .boton {
+    padding: 9px 14px;
+    font-size: 11px;
+    margin-left: auto;
+    margin-right: 18px;
+  }
+
+  /* Inicio */
+  .hero {
+    height: 75vh;
+  }
+
+  .hero::before {
+    background: linear-gradient(0deg, rgba(40, 32, 20, 0.6) 0%, rgba(40, 32, 20, 0.2) 60%, transparent 100%);
+  }
+
+  .hero {
+    align-items: flex-end;
+    padding-bottom: 50px;
+  }
+
+  .pilares ul {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
+
+  .pilares li:nth-child(3) {
+    border-left: none;
+  }
+
+  /* Menú */
+  .hero-chico {
+    height: 220px;
+  }
+
+  .hero-chico .hero-foto {
+    width: 100%;
+    opacity: 0.55;
+  }
+
+  .hero-tienda .hero-foto {
+    opacity: 1;
+  }
+
+  .hero-tienda::before {
+    background: linear-gradient(90deg, rgba(55, 62, 34, 0.85) 0%, rgba(55, 62, 34, 0.5) 100%);
+  }
+
+  .tabs label {
+    width: calc(50% - 8px);  /* 2 pestañas por fila */
+  }
+
+  .lista-menu {
+    grid-template-columns: 1fr;  /* una sola columna */
+  }
+
+  .producto {
+    grid-template-columns: 80px 1fr;
+    gap: 0 18px;
+  }
+
+  .producto img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Fika */
+  .sobre,
+  .esencia ul,
+  .el-espacio {
+    grid-template-columns: 1fr;
+  }
+
+  .sobre p {
+    max-width: none;
+  }
+
+  .esencia ul {
+    gap: 26px;
+  }
+
+  .esencia li {
+    border-left: none;
+    padding: 0 0 22px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .esencia li:last-child {
+    border-bottom: none;
+  }
+
+  .el-espacio .el-espacio-texto {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .el-espacio img {
+    height: 200px;
+  }
+
+  /* Espacio */
+  .espacio-intro {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .espacio-intro .rayita {
+    margin-bottom: 24px;
+  }
+
+  .espacio-intro img {
+    height: 240px;
+  }
+
+  .ambientes ul {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .ambientes li {
+    border-left: none;
+    padding: 0;
+  }
+
+  .ambiente-foto img {
+    height: 220px;
+  }
+
+  /* Info */
+  .info {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .ubicacion {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .contacto-col {
+    padding-left: 0;
+  }
+
+  .mapa {
+    height: 280px;
+  }
+
+  /* Tienda */
+  .grilla-cafes {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .como-comprar ol {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .como-comprar li {
+    border-left: none;
+    padding: 0;
+  }
+
+  .carrito-flotante {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .paso {
+    padding: 22px 20px 26px;
+  }
+}
+
+
+/* ---- CELULAR CHICO (hasta 420px) ---- */
+@media (max-width: 420px) {
+
+  .header .boton {
+    display: none;   /* "Contacto" ya está en el menú hamburguesa */
+  }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Esta línea es clave para que la página sea responsive en el celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre nosotros | Fika Ritual</title>
+  <meta name="description" content="Fika Ritual: cafetería de especialidad, restó y panadería artesanal en Del Viso, Pilar.">
+
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===== HEADER (igual en todas las páginas) ===== -->
+  <header class="header">
+    <div class="contenedor">
+      <a href="index.html" class="logo" aria-label="Fika Ritual, ir al inicio">
+        <span class="logo-fika">FIKA</span>
+        <span class="logo-ritual">RITUAL</span>
+      </a>
+
+      <!-- Checkbox escondido: abre y cierra el menú en celular -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html">Menú</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="fika.html" class="activo">Fika</a></li>
+          <li><a href="espacio.html">Espacio</a></li>
+          <li><a href="info.html">Info</a></li>
+          <li class="solo-celular"><a href="info.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <a href="info.html#contacto" class="boton boton-borde">Contacto</a>
+
+      <!-- Botón hamburguesa (solo se ve en celular) -->
+      <label for="menu-toggle" class="hamburguesa" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== SOBRE NOSOTROS ===== -->
+    <section class="bloque">
+      <div class="contenedor sobre">
+        <div>
+          <p class="etiqueta">Sobre nosotros</p>
+          <h2>Más que una cafetería,<br>un ritual.</h2>
+          <span class="rayita"></span>
+          <p>Fika Ritual es una cafetería de especialidad, restó y panadería artesanal, ubicada en Del Viso, Pilar, Buenos Aires. Nuestra propuesta combina café, gastronomía y una experiencia de pausa y encuentro.</p>
+        </div>
+        <img class="foto-ancha" src="img/fika-mesa.jpg" alt="Café con latte art y medialuna sobre una mesa de madera">
+      </div>
+    </section>
+
+    <!-- ===== ORIGEN + ESENCIA ===== -->
+    <section class="bloque">
+      <div class="contenedor origen">
+        <div class="origen-texto">
+          <p class="etiqueta">El origen</p>
+          <span class="rayita"></span>
+          <h2>Fika, una tradición<br>que nos inspira.</h2>
+          <p style="margin-top:14px">Fika hace referencia a una tradición sueca relacionada con hacer una pausa para tomar café y compartir algo para comer. En nuestro caso, la idea del café se lleva más allá, de simplemente consumir una bebida; se busca generar un momento de disfrute, tranquilidad y conexión.</p>
+        </div>
+        <div class="esencia">
+          <p class="etiqueta">Nuestra esencia</p>
+          <span class="rayita"></span>
+          <ul>
+            <li>
+              <div class="icono-circulo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20h24v8a10 10 0 0 1-10 10h-4a10 10 0 0 1-10-10z"/><path d="M34 23h3a4 4 0 0 1 0 8h-4"/><path d="M8 42h30"/><path d="M18 8c-2 3 2 4 0 8M24 6c-2 3 2 4 0 8M30 8c-2 3 2 4 0 8"/></svg></div>
+              <h3>Café de<br>especialidad</h3>
+              <p>Una carta variada con diferentes preparaciones como espresso, lungo, cortado y más.</p>
+            </li>
+            <li>
+              <div class="icono-circulo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 30c0-10 8-16 18-16s18 6 18 16c0 3-2 4-4 4H10c-2 0-4-1-4-4z"/><path d="M16 20l3 8M24 18v9M32 20l-3 8"/></svg></div>
+              <h3>Panadería<br>artesanal</h3>
+              <p>Panes orgánicos de masa madre, con fermentación natural. También opciones con semillas y veganas.</p>
+            </li>
+            <li>
+              <div class="icono-circulo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M40 8C20 8 8 18 10 38c20 2 30-10 30-30z"/><path d="M8 40L32 16"/><path d="M18 30h8M22 26v-8"/></svg></div>
+              <h3>Alimentación<br>consciente</h3>
+              <p>Opciones vegetarianas y veganas, además de productos sin lácteos, sin azúcar o con ingredientes orgánicos.</p>
+            </li>
+            <li>
+              <div class="icono-circulo"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 24h32v16H8z"/><path d="M8 24L34 12l6 12"/><path d="M8 31c4 2 8-2 12 0s8 2 12 0 6-2 8 0"/><circle cx="30" cy="10" r="2"/></svg></div>
+              <h3>Pastelería y<br>gastronomía</h3>
+              <p>Desayunos, brunch, almuerzos, tortas, panificados y diferentes platos.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EL ESPACIO ===== -->
+    <section class="bloque el-espacio-bloque">
+      <div class="contenedor el-espacio">
+        <img src="img/fika-cocina.jpg" alt="Cocina con azulejos terracota, vasijas de barro y estante de madera">
+        <div class="el-espacio-texto">
+          <p class="etiqueta">El espacio</p>
+          <span class="rayita"></span>
+          <h2>Naturaleza, calma<br>y buena compañía.</h2>
+          <p style="margin-top:12px">El entorno también forma parte de la experiencia. El local combina espacios interiores y exteriores con presencia de vegetación, buscando generar una sensación tranquila y relajada.</p>
+        </div>
+        <img src="img/fika-patio.jpg" alt="Mesa de madera en el patio rodeada de plantas">
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Fika Ritual &middot; Del Viso, Pilar</p>
+  </footer>
+
+</body>
+</html>
